@@ -1,166 +1,147 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Richard Xiong - FinTech and Big Data Analytics student, developer, and researcher." />
-		<title> Richard Xiong</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  </head>
-	<body>
-		<div class="page">
-			<main>
-				<p class="eyebrow">articwnd.github.io</p>
+<Layout
+  title="Richard Xiong"
+  description="Richard Xiong - FinTech and Big Data Analytics student, developer, and researcher."
+>
+  <div class="page">
+    <main>
+      <p class="eyebrow">articwnd.github.io</p>
 
-				<h1>Richard Xiong</h1>
-				<p class="fields">
-					Financial Technology
-					<span class="op">x</span>
-					Big Data Analytics
-					<span class="op">x</span>
-					Computer Science
-					<span class="op">x</span>
-					Mathematics
-				</p>
+      <h1>Richard Xiong</h1>
+      <p class="fields">
+        Financial Technology
+        <span class="op">x</span>
+        Big Data Analytics
+        <span class="op">x</span>
+        Computer Science
+        <span class="op">x</span>
+        Mathematics
+      </p>
 
-				<hr />
+      <hr />
 
-				<p class="bio">
-					Student, developer, and researcher at the intersection of 
-					<strong>finance and data</strong>. Pursuing a B.S. in Financial 
-					Technology and Big Data Analytics with minors in Computer Science
-					and Mathematics. Currently researching SAFE (Simple Agreement for Future Equity) 
-					filings to produce a deterministic Loughran-McDonald lexicon scan plus a structured 
-					LLM-derived rubric score.
-				</p>
+      <p class="bio">
+        Student, developer, and researcher at the intersection of
+        <strong>finance and data</strong>. Pursuing a B.S. in Financial
+        Technology and Big Data Analytics with minors in Computer Science
+        and Mathematics. Currently researching SAFE (Simple Agreement for Future Equity)
+        filings to produce a deterministic Loughran-McDonald lexicon scan plus a structured
+        LLM-derived rubric score.
+      </p>
 
-				<div class="links">
-					<a href="https://www.linkedin.com/in/xiongrichard/" target="_blank" rel="noopener noreferrer">
-						<span class="arr">↗</span> LinkedIn
-					</a>
-					<a href="https://github.com/articwnd" target="_blank" rel="noopener noreferrer">
-						<span class="arr">↗</span> GitHub
-					</a>
-				</div>
-			</main>
-		</div>
-	</body>
-</html>
-
-<style is:global>
-	*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body { margin: 0; }
-</style>
+      <div class="links">
+        <a href="/projects">
+          <span class="arr">↗</span> Projects
+        </a>
+        <a href="https://www.linkedin.com/in/xiongrichard/" target="_blank" rel="noopener noreferrer">
+          <span class="arr">↗</span> LinkedIn
+        </a>
+        <a href="https://github.com/articwnd" target="_blank" rel="noopener noreferrer">
+          <span class="arr">↗</span> GitHub
+        </a>
+      </div>
+    </main>
+  </div>
+</Layout>
 
 <style>
-	:root {
-		--bg:      #030B18;
-		--border:  #1B2D4A;
-		--primary: #E8EDF5;
-		--muted:   #6B8099;
-		--accent:  #38BDF8;
-	}
+  .page {
+    background: var(--bg);
+    color: var(--primary);
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+  }
 
-	.page {
-		background: var(--bg);
-		color: var(--primary);
-		font-family: 'Space Grotesk', sans-serif;
-		min-height: 100vh;
-	}
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
 
-	main {
-		max-width: 720px;
-		margin: 0 auto;
-		padding: 80px 40px;
-	}
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    opacity: 0.8;
+  }
 
-	.eyebrow {
-		font-family: 'JetBrains Mono', monospace;
-		font-size: 11px;
-		color: var(--accent);
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		margin-bottom: 40px;
-		opacity: 0.8;
-	}
+  h1 {
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
 
-	h1 {
-		font-size: clamp(40px, 8vw, 64px);
-		font-weight: 700;
-		line-height: 1.05;
-		letter-spacing: -0.02em;
-		color: var(--primary);
-		margin-bottom: 20px;
-	}
+  .fields {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    line-height: 2.2;
+  }
 
-	.fields {
-		font-size: 12px;
-		font-weight: 500;
-		letter-spacing: 0.08em;
-		color: var(--muted);
-		text-transform: uppercase;
-		margin-bottom: 40px;
-		line-height: 2.2;
-	}
+  .op {
+    color: var(--accent);
+    margin: 0 8px;
+  }
 
-	.op {
-		color: var(--accent);
-		margin: 0 8px;
-	}
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
 
-	hr {
-		border: none;
-		border-top: 1px solid var(--border);
-		margin-bottom: 40px;
-	}
+  .bio {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
 
-	.bio {
-		font-size: 16px;
-		line-height: 1.8;
-		color: var(--muted);
-		max-width: 600px;
-		margin-bottom: 48px;
-	}
+  .bio strong {
+    color: var(--primary);
+    font-weight: 500;
+  }
 
-	.bio strong {
-		color: var(--primary);
-		font-weight: 500;
-	}
+  .links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
 
-	.links {
-		display: flex;
-		gap: 32px;
-		flex-wrap: wrap;
-	}
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
 
-	.links a {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		font-family: 'JetBrains Mono', monospace;
-		font-size: 13px;
-		color: var(--primary);
-		text-decoration: none;
-		border-bottom: 1px solid var(--border);
-		padding-bottom: 2px;
-		transition: color 0.15s ease, border-color 0.15s ease;
-	}
+  .links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
 
-	.links a:hover {
-		color: var(--accent);
-		border-color: var(--accent);
-	}
+  .arr { color: var(--accent); }
 
-	.arr { color: var(--accent); }
-
-	@media (max-width: 640px) {
-		main { padding: 48px 24px; }
-		.fields { font-size: 11px; }
-	}
+  @media (max-width: 640px) {
+    main { padding: 48px 24px; }
+    .fields { font-size: 11px; }
+  }
 </style>

@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const sorted = allProjects.sort((a, b) => b.data.year - a.data.year);
+---
+
+<Layout title="Projects — Richard Xiong">
+  <div class="page">
+    <main>
+      <a href="/" class="back">← Home</a>
+      <h1>Projects</h1>
+
+      <div class="grid">
+        {sorted.map((project) => (
+          <a href={`/projects/${project.id}`} class="card">
+            <span class="year">{project.data.year}</span>
+            <h2>{project.data.title}</h2>
+            <p>{project.data.description}</p>
+            <div class="tech">
+              {project.data.tech.map((t) => <span>{t}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page { background: var(--bg); color: var(--primary); font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+  main { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+  .back { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; }
+  h1 { font-size: clamp(32px, 6vw, 48px); margin: 24px 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .card {
+    display: block; border: 1px solid var(--border); border-radius: 8px;
+    padding: 24px; text-decoration: none; color: var(--primary);
+    transition: border-color 0.15s ease;
+  }
+  .card:hover { border-color: var(--accent); }
+  .year { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+  .card h2 { font-size: 20px; margin: 10px 0 8px; }
+  .card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+  .tech { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tech span {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent); border: 1px solid var(--border); border-radius: 4px;
+    padding: 2px 8px;
+  }
+</style>

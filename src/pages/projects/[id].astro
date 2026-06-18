@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Layout title={`${project.data.title} — Richard Xiong`}>
+  <div class="page">
+    <main>
+      <a href="/projects" class="back">← All Projects</a>
+      <h1>{project.data.title}</h1>
+      <div class="meta">{project.data.year}</div>
+      <article class="prose">
+        <Content />
+      </article>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .page { background: var(--bg); color: var(--primary); font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+  main { max-width: 700px; margin: 0 auto; padding: 60px 40px; }
+  .back { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; }
+  h1 { font-size: clamp(28px, 5vw, 40px); margin: 24px 0 8px; }
+  .meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); margin-bottom: 40px; }
+  .prose :global(h2) { font-size: 20px; margin: 32px 0 12px; color: var(--accent); }
+  .prose :global(p) { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 16px; }
+</style>
