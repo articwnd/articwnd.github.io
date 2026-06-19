@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import profilePhoto from '../assests/profile.jpeg';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -8,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 >
   <div class="page">
     <main>
-      <p class="eyebrow">articwnd.github.io</p>
+          <p class="eyebrow">articwnd.github.io</p>
 
       <h1>Richard Xiong</h1>
       <p class="fields">
@@ -23,14 +25,24 @@ import Layout from '../layouts/Layout.astro';
 
       <hr />
 
-      <p class="bio">
-        Student, developer, and researcher at the intersection of
-        <strong>finance and data</strong>. Pursuing a B.S. in Financial
-        Technology and Big Data Analytics with minors in Computer Science
-        and Mathematics. Currently researching SAFE (Simple Agreement for Future Equity)
-        filings to produce a deterministic Loughran-McDonald lexicon scan plus a structured
-        LLM-derived rubric score.
-      </p>
+      <div class="bio-row">
+        <p class="bio">
+          Student, developer, and researcher at the intersection of
+          <strong>finance and data</strong>. Pursuing a B.S. in Financial
+          Technology and Big Data Analytics with minors in Computer Science
+          and Mathematics. Currently researching SAFE (Simple Agreement for Future Equity)
+          filings to produce a deterministic Loughran-McDonald lexicon scan plus a structured
+          LLM-derived rubric score.
+        </p>
+
+        <Image
+          src={profilePhoto}
+          alt="Richard Xiong"
+          width={180}
+          height={180}
+          class="image"
+        />
+      </div>
 
       <div class="links">
         <a href="/projects">
@@ -101,12 +113,18 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 40px;
   }
 
+  .bio-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
   .bio {
     font-size: 16px;
     line-height: 1.8;
     color: var(--muted);
-    max-width: 600px;
-    margin-bottom: 48px;
+    flex: 1;
   }
 
   .bio strong {
@@ -140,8 +158,33 @@ import Layout from '../layouts/Layout.astro';
 
   .arr { color: var(--accent); }
 
+  .her {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .image {
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 0;
+  }
+
   @media (max-width: 640px) {
     main { padding: 48px 24px; }
     .fields { font-size: 11px; }
+    .bio-row {
+      flex-direction: column;
+      align-items: center;
+    }
+    .links {
+      justify-content: center;
+    }
   }
 </style>
