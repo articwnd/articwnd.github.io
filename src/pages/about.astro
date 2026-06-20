@@ -3,18 +3,100 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About — Richard Xiong">
-    <main class="page-content">
+    <main class="about">
         <h1>About</h1>
-        <p>Content coming soon</p>
+
+        <p class="hook">
+            Hello, and welcome to my page! My name is Richard Xiong.
+            I am a Junior at Virginia Tech pursuing a BS in FinTech and 
+            Big Data Analytics as well as minors in Computer Science 
+            and Mathematics.  
+        </p>
+
+        <p>
+            I'm currently an undergraduate researcher studying the effects
+            of SAFEs (Simple Agreement for Future Equity) on start up 
+            companies. I'm currently applying a fine-tuned GPT model to 
+            score SAFE clauses across multiple sentiment categories such 
+            as risk, business overview, and financial health.
+        </p>
+
+        <p>
+            Outside of school, I enjoy cooking and tasting good food, 
+            especially with others. I like
+            to stay active, whether that's going to the gym or playing 
+            table tennis. I am also a F1 fan and hope to see the Shanghai 
+            Grand Prix one day.
+        </p>
+        
+        <div class="facts">
+            <h2>Fun Facts</h2>
+            <ul>
+                <li>I can speak Mandarin and Shanghainese</li>
+                <li>Brother in Phi Gamma Nu — Professional Entrepreneurship Fraternity</li>
+                <li>I have been a tutor since elementary school and through till college</li>
+                <li><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">My resume, if you want the formal version</a></li>
+            </ul>
+        </div>
+
     </main>
 </Layout>
 
 <style>
-    .page-content {
-        max-width: 720px;
+    .about {
+        max-width: 640px;
         margin: 0 auto;
-        padding: 120px 40px 60px;
+        padding: 120px 40px 80px;
     }
-    h1 { font-size: clamp(32px, 6vw, 48px); 
-    margin-bottom :24px;}
+    h1 { 
+        font-size: clamp(32px, 6vw, 48px); 
+        margin-bottom :36px;
+    }
+    .hook {
+        font-size: 20px;
+        line-height: 1.6;
+        color: var(--primary);
+        margin-bottom: 32px;
+    }
+    .about p {
+        font-size: 16px;
+        line-height: 1.85;
+        color: var(--muted);
+        margin-bottom: 24px;
+    }
+    .facts {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+    .facts h2 {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+    }
+    .facts ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .facts li {
+        font-size: 14px;
+        color: var(--muted);
+    }
+    .facts a {
+        color: var(--primary);
+        border-bottom: 1px solid var(--border);
+    }
+    .facts a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+    @media (max-width: 640px) {
+        .about { padding: 100px 24px 60px;  }
+        .hook { font-size: 18px; }
+    }
 </style>
