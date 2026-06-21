@@ -1,11 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const experiences = [
+    {
+        title: "AI and Process Automation Intern",
+        company: "Blake Willson Group",
+        location: "Arlington, VA",
+        dates: "June 2025 - August 2025",
+        tags: ["Power Apps", "AzureAPI", "OCR Automation"],
+        clearance: "Public Trust Clearance",
+        bullets: [
+            "Designed and deployed 7 custom Power Apps solutions to streamline internal workflows",
+            "Built and maintained SharePoint-integrated data pipelines to centralize document storage and retrieval",
+            "Researched and evaluated AI and automation platforms specific to government firms to support tooling decisions",
+        ],
+    },
+    {
+        title: "Undergraduate Research Assistant",
+        company: "Virginia Tech FinTech Club",
+        location: "Blacksburg, VA",
+        dates: "October 2025 - Present",
+        tags: ["Fine-tuning", "SEC EDGAR", "Python"],
+        bullets: [
+            "Fine-tuned GPT-4o-mini via OpenAI's fine-tuning API on the Financial PhraseBank allagree subset (Hugging Face)",
+            "Applied the fine-tuned model to score SAFE clauses across multiple sentiment dimension",
+            "Web-scraped and parsed 1000+ SEC EDGAR filings in Python to build the SAFE corpus, "
+        ]
+    }
+]
 ---
 
 <Layout title="Experience — Richard Xiong">
     <main class="page-content">
         <h1>Experience</h1>
-        <p>Content coming soon</p>
+        {experiences.map((job) => (
+            <p class="job">
+            <div class="job-header">
+                <h2>{job.title}</h2>
+                    {job.clearance && <span class="clearance">{job.clearance}</span>}
+            </div>
+            <p class="company">{job.company}</p>
+            <p class="meta">{job.location} · {job.dates}</p>
+
+            <div class="tags">
+                {job.tags.map((t) => <span>{t}</span>)}
+            </div>
+            
+        </p>
+        ))}
     </main>
 </Layout>
 
