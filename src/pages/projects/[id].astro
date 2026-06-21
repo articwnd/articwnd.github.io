@@ -20,6 +20,13 @@ const { Content } = await render(project);
       <a href="/projects" class="back">← All Projects</a>
       <h1>{project.data.title}</h1>
       <div class="meta">{project.data.year}</div>
+      <div class="project-links">
+        {project.data.github_link && (
+          <a href={project.data.github_link} target="_blank" rel="noopener noreferrer">
+            View code
+          </a>
+        )}
+      </div>
       <article class="prose">
         <Content />
       </article>
@@ -28,11 +35,59 @@ const { Content } = await render(project);
 </Layout>
 
 <style>
-  .page { background: var(--bg); color: var(--primary); font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
-  main { max-width: 700px; margin: 0 auto; padding: 60px 40px; }
-  .back { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; }
-  h1 { font-size: clamp(28px, 5vw, 40px); margin: 24px 0 8px; }
-  .meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); margin-bottom: 40px; }
-  .prose :global(h2) { font-size: 20px; margin: 32px 0 12px; color: var(--accent); }
-  .prose :global(p) { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 16px; }
+  .page { 
+    background: var(--bg); 
+    color: var(--primary); 
+    font-family: 'Space Grotesk', sans-serif; 
+    min-height: 100vh; 
+  }
+  main { 
+    max-width: 700px; 
+    margin: 0 auto; 
+    padding: 60px 40px; 
+  }
+  .back { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 12px; 
+    color: var(--accent); 
+    text-decoration: none; 
+  }
+  h1 { 
+    font-size: clamp(28px, 5vw, 40px); 
+    margin: 24px 0 8px; 
+  }
+  .meta { 
+    font-family: 'JetBrains Mono', monospace; 
+  font-size: 12px; 
+  color: var(--muted); 
+  margin-bottom: 40px; 
+}
+  .prose :global(h2) { 
+    font-size: 20px; 
+    margin: 32px 0 12px; 
+    color: var(--accent); 
+  }
+  .prose :global(p) { 
+    font-size: 16px; 
+    line-height: 1.8; 
+    color: var(--muted); 
+    margin-bottom: 16px; 
+  }
+  .project-links { 
+    display:flex; 
+    gap: 24px; 
+    margin-bottom: 40px 
+  }
+  .projects_links a { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 13px; 
+    color: var(--primary); 
+    text-decoration:none; 
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+  }
+  .projects-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
 </style>
