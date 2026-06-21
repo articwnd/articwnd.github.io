@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experiences = [
+    {
+        title: "AI and Process Automation Intern",
+        company: "Blake Willson Group",
+        location: "Arlington, VA",
+        dates: "June 2025 - August 2025",
+        tags: ["Power Apps", "AzureAPI", "OCR Automation"],
+        clearance: "Public Trust Clearance",
+        bullets: [
+            "Designed and deployed 7 custom Power Apps solutions to streamline internal workflows",
+            "Built and maintained SharePoint-integrated data pipelines to centralize document storage and retrieval",
+            "Researched and evaluated AI and automation platforms specific to government firms to support tooling decisions",
+        ],
+    },
+    {
+        title: "Undergraduate Research Assistant",
+        company: "Virginia Tech FinTech Club",
+        location: "Blacksburg, VA",
+        dates: "October 2025 - Present",
+        tags: ["Fine-tuning", "SEC EDGAR", "Python"],
+        bullets: [
+            "Fine-tuned GPT-4o-mini via OpenAI's fine-tuning API on the Financial PhraseBank allagree subset (Hugging Face)",
+            "Applied the fine-tuned model to score SAFE clauses across multiple sentiment dimension",
+            "Web-scraped and parsed 1000+ SEC EDGAR filings in Python to build the SAFE corpus, "
+        ]
+    }
+]
+---
+
+<Layout title="Experience — Richard Xiong">
+  <main class="experience">
+    <h1>Experience</h1>
+
+    {experiences.map((job) => (
+      <article class="job">
+        <div class="job-header">
+          <h2>{job.title}</h2>
+          {job.clearance && <span class="clearance">{job.clearance}</span>}
+        </div>
+        <p class="company">{job.company}</p>
+        <p class="meta">{job.location} · {job.dates}</p>
+
+        <div class="tags">
+          {job.tags.map((t) => <span>{t}</span>)}
+        </div>
+
+        <ul class="bullets">
+          {job.bullets.map((b) => <li>{b}</li>)}
+        </ul>
+      </article>
+    ))}
+  </main>
+</Layout>
+
+<style>
+  .experience {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 48px;
+  }
+
+  .job {
+    margin-bottom: 56px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .job:last-child {
+    border-bottom: none;
+  }
+
+  .job-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .job h2 {
+    font-size: 24px;
+    color: var(--primary);
+  }
+
+  .clearance {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+
+  .company {
+    font-size: 16px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .tags span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+
+  .bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bullets li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .experience { padding: 100px 24px 60px; }
+    .job h2 { font-size: 20px; }
+  }
+</style>
