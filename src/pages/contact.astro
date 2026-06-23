@@ -5,7 +5,55 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Contact — Richard Xiong">
     <main class="page-content">
         <h1>Contact</h1>
-        <p>Content coming soon</p>
+        <p class="subtitlte">
+            Have a question, opportunity, or just want to connect? Send
+            me a message and I'll get back to you as soon as I can.
+        </p>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c2bff92f-08d0-4790-921f-d05d4a7e4637" />
+
+            <input type="checkbox" name="botcheck" style="display:none" />
+
+            <input type="hidden" name="subject" value="New message from articwnd.github.io" />
+
+            <div class="field">
+                <label for="name">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                />
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                />
+            </div>
+
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="What's on your mind?"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn">Send Message</button>
+
+            <p id="form-status" class="status" aria-live="polite"></p>
+        </form>
     </main>
 </Layout>
 
