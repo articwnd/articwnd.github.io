@@ -3,17 +3,14 @@ import Layout from '../layouts/Layout.astro';
 
 const experiences = [
     {
-        title: "AI and Process Automation Intern",
-        company: "Blake Willson Group",
-        location: "Arlington, VA",
-        dates: "June 2025 - August 2025",
-        tags: ["Power Apps", "AzureAPI", "OCR Automation"],
-        clearance: "Public Trust Clearance",
+        title: "Process Automation and AI Intern",
+        company: "Institute for Building Technology and Safety (IBTS)",
+        location: "Ashburn, VA",
+        dates: "June 2026 - Present",
+        tags: ["Power Automate", "Power Apps", "Azure API"],
         bullets: [
-            "Designed and deployed 7 custom Power Apps solutions to streamline internal workflows",
-            "Built and maintained SharePoint-integrated data pipelines to centralize document storage and retrieval",
-            "Researched and evaluated AI and automation platforms specific to government firms to support tooling decisions",
-        ],
+            "Incoming Intern"
+        ]
     },
     {
         title: "Undergraduate Research Assistant",
@@ -26,13 +23,37 @@ const experiences = [
             "Applied the fine-tuned model to score SAFE clauses across multiple sentiment dimension",
             "Web-scraped and parsed 1000+ SEC EDGAR filings in Python to build the SAFE corpus, "
         ]
-    }
+    },
+    {
+        title: "Student Tutor",
+        company: "Virginia Tech - Student Success Center",
+        location: "Blacksburg, VA",
+        dates: "June 2026 - Present",
+        tags: ["Leadership", "Teamwork", "Collaboration"],
+        bullets: [
+            "Incoming Tutor for Fall 2026 - Spring 2027 semesters"
+        ]
+    },
+    {
+        title: "AI and Process Automation Intern",
+        company: "Blake Willson Group",
+        location: "Arlington, VA",
+        dates: "June 2025 - August 2025",
+        tags: ["Power Automate", "AzureAPI", "OCR Automation"],
+        clearance: "Public Trust Clearance",
+        bullets: [
+            "Designed and deployed 7 custom Power Apps solutions to streamline internal workflows",
+            "Built and maintained SharePoint-integrated data pipelines to centralize document storage and retrieval",
+            "Researched and evaluated AI and automation platforms specific to government firms to support tooling decisions",
+        ],
+    },
 ]
 ---
 
 <Layout title="Experience — Richard Xiong">
   <main class="experience">
     <h1>Experience</h1>
+    <h2><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">My resume, if you want the formal version</a></h2>
 
     {experiences.map((job) => (
       <article class="job">
@@ -64,7 +85,12 @@ const experiences = [
 
   h1 {
     font-size: clamp(32px, 6vw, 48px);
-    margin-bottom: 48px;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: var(--muted);
   }
 
   .job {
