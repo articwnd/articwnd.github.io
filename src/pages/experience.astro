@@ -53,7 +53,9 @@ const experiences = [
 <Layout title="Experience — Richard Xiong">
   <main class="experience">
     <h1>Experience</h1>
-    <h2><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">My resume, if you want the formal version</a></h2>
+    <a class="resume-link" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+      My resume, if you want the formal version →
+    </a>
 
     {experiences.map((job) => (
       <article class="job">
@@ -88,9 +90,21 @@ const experiences = [
     margin-bottom: 24px;
   }
 
-  h2 {
-    font-size: 14px;
+  .resume-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
     color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    display: inline-block;
+    margin-bottom: 48px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .resume-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .job {
