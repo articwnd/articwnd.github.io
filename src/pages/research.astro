@@ -20,7 +20,7 @@ const chapters = [
         description: "Markets don't rise because the economy is 'good.'' They move on interest rates, " +
         "inflation surprises, the dollar, and liquidity, relative to what was already expected. This chapter maps those " +
         "forces and why 'already priced in' explains most of what looks surprising, worked through the 2022 to 2023 rate cycle.",
-        href: "research/chapter-1",
+        href: "research/chapter-2",
         status: "soon",
     },
     {
@@ -29,7 +29,7 @@ const chapters = [
         description: "Candlesticks and chart patterns, taught honestly. You learn what each pattern claims and the market " +
         "psychology behind it, then see what happens when you actually measure it. You walk out treating a pattern as a hypothesis " +
         "with a hit rate, not a rule to obey.",
-        href: "research/chapter-1",
+        href: "research/chapter-3",
         status: "soon",
     },
     {
@@ -38,7 +38,7 @@ const chapters = [
         description: "Where reading the market turns into researching it. This chapter shows how a trading idea becomes something " +
         "you can trust: building a signal, running a backtest as a real experiment, and avoiding the traps (overfitting, testing too many things) " +
         "that make good-looking results meaningless. Includes code you can re-run yourself.",
-        href: "research/chapter-1",
+        href: "research/chapter-4",
         status: "soon",
     },
     {
@@ -47,7 +47,7 @@ const chapters = [
         description: "A genuine edge still bleeds out if you size it wrong, misread correlation, or let your own instincts drive. This " +
         "chapter covers position sizing, what a drawdown is really diagnosing, and the behavioral mistakes (cutting winners early, chasing losses) " +
         "that quietly end accounts.",
-        href: "research/chapter-1",
+        href: "research/chapter-5",
         status: "soon",
     },
     {
@@ -56,7 +56,7 @@ const chapters = [
         description: "A single research question taken through the entire cycle: hypothesis, signal, validation, costs, sizing, and an honest " +
         "verdict, with the full repository open to inspect. The point is not a guaranteed winner. It is showing the process that separates a real " +
         "result from a lucky one.",
-        href: "research/chapter-1",
+        href: "research/chapter-6",
         status: "soon",
     },
 ]
@@ -66,16 +66,114 @@ const chapters = [
 <Layout title="Research — Richard Xiong">
     <main class="page-content">
         <h1>Research</h1>
-        <p>Content coming soon</p>
+        <p class="intro"> 
+            something clever
+        </p>
     </main>
 </Layout>
 
 <style>
-    .page-content {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 120px 40px 60px;
-    }
-    h1 { font-size: clamp(32px, 6vw, 48px); 
-    margin-bottom :24px;}
+  .research {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 32px;
+  }
+
+  .intro {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .chapter-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .chapter-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .chapter-card.clickable:hover {
+    border-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .chapter-card:not(.clickable) {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .chapter-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--accent);
+    opacity: 0.4;
+    min-width: 40px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .chapter-card.clickable .chapter-number {
+    opacity: 1;
+  }
+
+  .chapter-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .chapter-body h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--primary);
+  }
+
+  .chapter-body p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .chapter-arrow {
+    font-size: 18px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .chapter-soon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .research { padding: 100px 24px 60px; }
+    .chapter-number { font-size: 20px; }
+    .chapter-card { gap: 16px; padding: 20px 16px; }
+  }
 </style>
