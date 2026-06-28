@@ -1,5 +1,66 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// change status from "soon" to "published" when a chapter is ready
+// the href must match the filenameyou create in src/pages/research/.
+
+const chapters = [
+    {
+        number: 1,
+        title: "How to Read a Market Claim",
+        description: "Before a single chart or strategy, you need a filter for what counts as evidence. " + 
+        "This chapter rebuilds how you judge any market claim, so 'it worked in a backtest' stops passing as proof. " +
+        "You leave able to tell a real pattern from a good story, which is the skill every later chapter depends on.",
+        href: "research/chapter-1",
+        status: "soon",
+    },
+    {
+        number: 2,
+        title: "The Macro Machine",
+        description: "Markets don't rise because the economy is 'good.'' They move on interest rates, " +
+        "inflation surprises, the dollar, and liquidity, relative to what was already expected. This chapter maps those " +
+        "forces and why 'already priced in' explains most of what looks surprising, worked through the 2022 to 2023 rate cycle.",
+        href: "research/chapter-1",
+        status: "soon",
+    },
+    {
+        number: 3,
+        title: "Reading Price Without Fooling Yourself",
+        description: "Candlesticks and chart patterns, taught honestly. You learn what each pattern claims and the market " +
+        "psychology behind it, then see what happens when you actually measure it. You walk out treating a pattern as a hypothesis " +
+        "with a hit rate, not a rule to obey.",
+        href: "research/chapter-1",
+        status: "soon",
+    },
+    {
+        number: 4,
+        title: "From Idea to Tested System",
+        description: "Where reading the market turns into researching it. This chapter shows how a trading idea becomes something " +
+        "you can trust: building a signal, running a backtest as a real experiment, and avoiding the traps (overfitting, testing too many things) " +
+        "that make good-looking results meaningless. Includes code you can re-run yourself.",
+        href: "research/chapter-1",
+        status: "soon",
+    },
+    {
+        number: 5,
+        title: "Risk, Sizing, and Surviving Yourself",
+        description: "A genuine edge still bleeds out if you size it wrong, misread correlation, or let your own instincts drive. This " +
+        "chapter covers position sizing, what a drawdown is really diagnosing, and the behavioral mistakes (cutting winners early, chasing losses) " +
+        "that quietly end accounts.",
+        href: "research/chapter-1",
+        status: "soon",
+    },
+    {
+        number: 6,
+        title: "One Idea, End to End",
+        description: "A single research question taken through the entire cycle: hypothesis, signal, validation, costs, sizing, and an honest " +
+        "verdict, with the full repository open to inspect. The point is not a guaranteed winner. It is showing the process that separates a real " +
+        "result from a lucky one.",
+        href: "research/chapter-1",
+        status: "soon",
+    },
+]
+
 ---
 
 <Layout title="Research — Richard Xiong">
