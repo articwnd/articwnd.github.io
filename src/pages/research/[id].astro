@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+export function getStaticPaths() {
+    return [
+        { params: {id: 'chapter-1' } },
+        { params: {id: 'chapter-2' } },
+        { params: {id: 'chapter-3' } },
+        { params: {id: 'chapter-4' } },
+        { params: {id: 'chapter-5' } },
+        { params: {id: 'chapter-6' } },
+    ]
+}
+
+const { id } = Astro.params;
+const chapterNumber = id.replace('chapter-', '');
+---
+
+<Layout title={'Chapter $chapterNumber} - Research - Richard Xiong'}>
+    <main class="chapter">
+        <a href="research" class="back">← Research</a>
+        <p class="eyebrow">Chapter {chapterNumber}</p>
+        <h1>[Chapter Title]</h1>
+        <p class="coming">Content coming soon.</p>
+    </main>
+</Layout>
+
+<style>
+  .chapter {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+  }
+
+  .back {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    margin-bottom: 32px;
+  }
+
+  .coming {
+    font-size: 15px;
+    color: var(--muted);
+  }
+</style>
